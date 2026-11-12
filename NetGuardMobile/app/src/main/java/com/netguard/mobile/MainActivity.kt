@@ -448,7 +448,7 @@ private class AppUsageReader(private val context: Context) {
 
     private fun readNetworkType(type: Int, start: Long, end: Long, totals: MutableMap<Int, LongArray>) {
         val manager = context.getSystemService(Context.NETWORK_STATS_SERVICE) as NetworkStatsManager
-        val stats = manager.querySummaryForAllUid(type, null, start, end)
+        val stats = manager.querySummary(type, null, start, end)
         try {
             val bucket = NetworkStats.Bucket()
             while (stats.hasNextBucket()) {
